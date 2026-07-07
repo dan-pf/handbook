@@ -1,0 +1,61 @@
+---
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+
+const { entry, sidebar, editUrl } = Astro.locals.starlightRoute;
+const { title, owner, initials, avatarColor, updated, readTime, stub } = entry.data;
+
+// Breadcrumb: the sidebar group this page belongs to.
+let section: string | undefined;
+for (const item of sidebar) {
+	if (item.type === 'group' && item.entries.some((e) => e.type === 'link' && e.isCurrent)) {
+		section = item.label;
+	}
+}
+---
+
+{
+	section && (
+		<div class="pf-breadcrumb">
+			{section}
+			<span class="pf-breadcrumb-sep">/</span>
+			<span class="pf-breadcrumb-page">{title}</span>
+		</div>
+	)
+}
+
+<Default />
+
+{
+	owner && (
+		<div class="pf-byline">
+			<span class="pf-avatar" style={`background:${avatarColor}`}>
+				{initials}
+			</span>
+			<span class="pf-owner">{owner}</span>
+			{updated && (
+				<>
+					<span>·</span>
+					<span>Updated {updated}</span>
+				</>
+			)}
+			{readTime && (
+				<>
+					<span>·</span>
+					<span>{readTime}</span>
+				</>
+			)}
+		</div>
+	)
+}
+
+{
+	stub && (
+		<div class="pf-stub-banner">
+			<span class="pf-badge">Stub</span>
+			<span>
+				This page is outlined but not yet written. Know this area?{' '}
+				<a href={editUrl}>Suggest an edit</a> and take the pen.
+			</span>
+		</div>
+	)
+}

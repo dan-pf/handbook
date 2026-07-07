@@ -1,0 +1,21 @@
+---
+import Default from '@astrojs/starlight/components/MarkdownContent.astro';
+
+const { facts } = Astro.locals.starlightRoute.entry.data;
+---
+
+<Default><slot /></Default>
+
+{
+	facts && facts.length > 0 && (
+		<div class="pf-facts">
+			<div class="pf-facts-title">At a glance</div>
+			{facts.map((f) => (
+				<div class="pf-fact">
+					<span class="pf-fact-label">{f.label}</span>
+					<span>{f.value}</span>
+				</div>
+			))}
+		</div>
+	)
+}

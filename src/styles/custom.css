@@ -1,0 +1,417 @@
+/* ============================================================
+   Planet Fitness Engineering Handbook — Starlight theme
+   Palettes and type transcribed from the Claude Design handoff
+   (PF Engineering Handbook.dc.html).
+   ============================================================ */
+
+:root {
+	--sl-font: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--pf-yellow: #ffe003;
+	--pf-ink: #14142b;
+
+	/* Dark theme (default) */
+	--sl-color-accent-low: #31184f;
+	--sl-color-accent: #470a68;
+	--sl-color-accent-high: #d9b1ff;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #e4e4ee;
+	--sl-color-gray-2: #c7c7d6;
+	--sl-color-gray-3: #8f8fa6;
+	--sl-color-gray-4: #4b4b66;
+	--sl-color-gray-5: #2b2b4a;
+	--sl-color-gray-6: #1c1c39;
+	--sl-color-black: #14142b;
+	--sl-color-bg: #14142b;
+	--sl-color-bg-nav: #14142b;
+	--sl-color-bg-sidebar: #191934;
+	--sl-color-bg-inline-code: #1c1c39;
+	--sl-color-hairline: #2b2b4a;
+	--sl-color-hairline-light: #2b2b4a;
+	--sl-color-hairline-shade: #2b2b4a;
+	--sl-color-text: #c7c7d6;
+	--sl-color-text-accent: #d9b1ff;
+
+	--pf-link-hover: #ffe003;
+	--pf-selected: #31184f;
+	--pf-selected-text: #d9b1ff;
+	--pf-callout: #2e1552;
+	--pf-callout-text: #e4d2f7;
+	--pf-warn: #3a340a;
+	--pf-warn-text: #fff8b3;
+	--pf-hover: rgba(217, 177, 255, 0.08);
+	--pf-card: #1c1c39;
+	--pf-kbd: #242444;
+	--pf-body: #c7c7d6;
+	--pf-muted: #8f8fa6;
+	--pf-accent: #d9b1ff;
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: #eceaf9;
+	--sl-color-accent: #470a68;
+	--sl-color-accent-high: #340059;
+	--sl-color-white: #14142b;
+	--sl-color-gray-1: #2a2a3c;
+	--sl-color-gray-2: #4b4b4c;
+	--sl-color-gray-3: #707070;
+	--sl-color-gray-4: #9a9aa8;
+	--sl-color-gray-5: #d5d5dc;
+	--sl-color-gray-6: #ededef;
+	--sl-color-gray-7: #f7f7fc;
+	--sl-color-black: #ffffff;
+	--sl-color-bg: #ffffff;
+	--sl-color-bg-nav: #ffffff;
+	--sl-color-bg-sidebar: #f7f7fc;
+	--sl-color-bg-inline-code: #f7f7fc;
+	--sl-color-hairline: #ededef;
+	--sl-color-hairline-light: #ededef;
+	--sl-color-hairline-shade: #ededef;
+	--sl-color-text: #4b4b4c;
+	--sl-color-text-accent: #470a68;
+
+	--pf-link-hover: #ad43db;
+	--pf-selected: #eceaf9;
+	--pf-selected-text: #470a68;
+	--pf-callout: #e4d2f7;
+	--pf-callout-text: #340059;
+	--pf-warn: #fff8b3;
+	--pf-warn-text: #4b4b4c;
+	--pf-hover: rgba(71, 10, 104, 0.06);
+	--pf-card: #ffffff;
+	--pf-kbd: #ffffff;
+	--pf-body: #4b4b4c;
+	--pf-muted: #707070;
+	--pf-accent: #470a68;
+}
+
+/* ---------- Typography ---------- */
+
+.sl-markdown-content {
+	font-size: 1rem;
+	line-height: 1.68;
+}
+
+/* Heavy uppercase display headings */
+h1,
+.sl-markdown-content h1 {
+	font-weight: 900;
+	text-transform: uppercase;
+	font-size: 2.375rem;
+	line-height: 1.02;
+	letter-spacing: -0.01em;
+}
+
+.sl-markdown-content h2 {
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+	letter-spacing: 0.01em;
+	margin-top: 2.25rem;
+}
+
+/* Lead paragraph */
+.sl-markdown-content > p:first-child {
+	font-size: 1.125rem;
+	line-height: 1.6;
+}
+
+.sl-markdown-content a:not(:where(.not-content *)) {
+	text-decoration: none;
+}
+.sl-markdown-content a:hover:not(:where(.not-content *)) {
+	color: var(--pf-link-hover);
+	text-decoration: underline;
+}
+
+/* Inline code chips */
+.sl-markdown-content code:not(:where(.not-content *, pre *)) {
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 6px;
+	padding: 1px 6px;
+	font-size: 0.8125rem;
+}
+
+/* ---------- Tables ---------- */
+
+.sl-markdown-content table:not(:where(.not-content *)) {
+	width: 100%;
+	display: table;
+	font-size: 0.90625rem;
+}
+.sl-markdown-content th:not(:where(.not-content *)) {
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--pf-muted);
+	text-align: left;
+	border: 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	padding: 8px 12px 8px 0;
+	background: transparent;
+}
+.sl-markdown-content td:not(:where(.not-content *)) {
+	border: 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	padding: 10px 12px 10px 0;
+}
+.sl-markdown-content tr:nth-child(2n):not(:where(.not-content *)) {
+	background: transparent;
+}
+.sl-markdown-content td:first-child:not(:where(.not-content *)) {
+	font-weight: 600;
+	color: var(--sl-color-white);
+}
+
+/* Severity pills (incidents page) */
+.pf-sev {
+	color: #fff;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	padding: 2px 8px;
+	border-radius: 999px;
+	white-space: nowrap;
+}
+.pf-sev--1 {
+	background: #ad0000;
+}
+.pf-sev--2 {
+	background: #b26b00;
+}
+.pf-sev--3 {
+	background: #707070;
+}
+td .pf-sev {
+	font-weight: 700;
+}
+
+/* ---------- Asides → PF callouts ---------- */
+
+.starlight-aside {
+	border: 0;
+	border-radius: 12px;
+	padding: 14px 16px;
+	font-size: 0.90625rem;
+	line-height: 1.55;
+}
+.starlight-aside--note,
+.starlight-aside--tip {
+	background: var(--pf-callout);
+	color: var(--pf-callout-text);
+	--sl-color-asides-text-accent: var(--pf-callout-text);
+}
+.starlight-aside--caution {
+	background: var(--pf-warn);
+	color: var(--pf-warn-text);
+	--sl-color-asides-text-accent: var(--pf-warn-text);
+}
+.starlight-aside__title {
+	font-size: 0.8125rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+.starlight-aside__content {
+	color: inherit;
+}
+
+/* ---------- Top bar ---------- */
+
+.site-title {
+	gap: 10px;
+	color: var(--sl-color-white);
+	font-weight: 700;
+	font-size: 0.9375rem;
+	letter-spacing: -0.01em;
+}
+.pf-logo {
+	color: var(--pf-accent);
+	display: flex;
+}
+.pf-logo svg {
+	display: block;
+}
+.pf-badge {
+	background: var(--pf-yellow);
+	color: var(--pf-ink);
+	font-size: 0.625rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	padding: 3px 8px;
+	border-radius: 999px;
+	white-space: nowrap;
+}
+
+/* Pill-shaped search bar, as in the design */
+button[data-open-modal] {
+	border-radius: 999px;
+	border: 1px solid var(--sl-color-hairline);
+	background: var(--sl-color-bg-sidebar);
+	color: var(--pf-muted);
+}
+button[data-open-modal] kbd {
+	background: var(--pf-kbd);
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 5px;
+}
+
+/* ---------- Sidebar ---------- */
+
+nav.sidebar .top-level {
+	counter-reset: pf-section;
+}
+nav.sidebar .top-level > li > details > summary {
+	border-radius: 8px;
+}
+nav.sidebar .top-level > li > details > summary:hover {
+	background: var(--pf-hover);
+}
+nav.sidebar .top-level > li > details > summary .group-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+nav.sidebar .top-level > li > details > summary .group-label::before {
+	counter-increment: pf-section;
+	content: counter(pf-section, decimal-leading-zero);
+	font-size: 0.625rem;
+	font-weight: 700;
+	color: var(--pf-accent);
+	font-variant-numeric: tabular-nums;
+	width: 16px;
+	flex: none;
+}
+nav.sidebar .top-level > li > details > summary .group-label .large {
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	color: var(--sl-color-white);
+}
+nav.sidebar .top-level > li > details > ul {
+	margin-inline-start: 0.875rem;
+	border-inline-start: 1px solid var(--sl-color-hairline);
+	padding-inline-start: 0.125rem;
+}
+nav.sidebar .top-level a {
+	font-size: 0.84375rem;
+	border-radius: 7px;
+	padding: 0.375em 0.625em;
+	margin-inline-start: 0.5rem;
+	color: var(--pf-body);
+}
+nav.sidebar .top-level a:hover {
+	background: var(--pf-hover);
+	color: var(--sl-color-white);
+}
+nav.sidebar .top-level a[aria-current='page'],
+nav.sidebar .top-level a[aria-current='page']:hover {
+	background: var(--pf-selected);
+	color: var(--pf-selected-text);
+	font-weight: 600;
+}
+
+/* ---------- Page byline ---------- */
+
+.pf-breadcrumb {
+	font-size: 0.8125rem;
+	color: var(--pf-muted);
+	margin-bottom: 14px;
+}
+.pf-breadcrumb-sep {
+	margin: 0 6px;
+}
+.pf-breadcrumb-page {
+	color: var(--sl-color-white);
+	font-weight: 600;
+}
+.pf-byline {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 16px 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	margin-top: 16px;
+	font-size: 0.8125rem;
+	color: var(--pf-muted);
+}
+.pf-avatar {
+	width: 28px;
+	height: 28px;
+	border-radius: 999px;
+	color: #fff;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pf-owner {
+	font-weight: 600;
+	color: var(--sl-color-white);
+	font-size: 0.84375rem;
+}
+
+/* ---------- Stub banner & facts ---------- */
+
+.pf-stub-banner {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: var(--pf-warn);
+	color: var(--pf-warn-text);
+	border-radius: 12px;
+	padding: 12px 16px;
+	margin-top: 20px;
+	font-size: 0.875rem;
+}
+.pf-stub-banner .pf-badge {
+	flex: none;
+}
+.pf-stub-banner a {
+	font-weight: 600;
+	color: var(--sl-color-text-accent);
+	text-decoration: none;
+}
+.pf-stub-banner a:hover {
+	color: var(--pf-link-hover);
+	text-decoration: underline;
+}
+
+.pf-facts {
+	margin-top: 2rem;
+}
+.pf-facts-title {
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--pf-muted);
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--sl-color-hairline);
+}
+.pf-fact {
+	display: flex;
+	gap: 16px;
+	padding: 10px 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	font-size: 0.90625rem;
+}
+.pf-fact-label {
+	flex: none;
+	width: 190px;
+	font-weight: 600;
+	color: var(--sl-color-white);
+}
+
+/* ---------- Right rail ("On this page") ---------- */
+
+starlight-toc h2,
+mobile-starlight-toc h2 {
+	font-size: 0.65625rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--pf-muted);
+}
