@@ -1,21 +1,21 @@
 ---
 title: How do we ship code?
 description: Trunk-based development, small PRs, deploy on merge, progressive rollout.
-owner: Dev Patel
-initials: DP
-avatarColor: '#8845C8'
+owner: Dan Lourenço
+initials: DL
+avatarColor: '#AD43DB'
 updated: Jun 25, 2026
 readTime: 6 min read
 ---
 
-Trunk-based, small PRs, deploy on merge. Anything riskier than a copy change goes out behind a flag. The goal is that shipping feels boring — excitement belongs in the product, not the deploy.
+Trunk-based, small PRs, deploy on merge. Anything riskier than a copy change goes out behind a flag. The goal is that shipping feels boring — excitement belongs in the product, not the deploy. Trunk-based development means: keep the trunk stable at all times, work in small batches and merge frequently, review PRs quickly, and treat pipeline failures as drop-everything ([full branching strategy](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4830560265) in Confluence).
 
 ## The loop
 
-1. Branch off `main` as `<user>/<linear-id>-slug`. Branches live days, not weeks.
+1. Branch off `main` as `<user>/<jira-key>-slug`. Branches live days, not weeks.
 2. Open the PR early as a draft. CI runs on every push.
 3. One approval merges it. Two for anything touching billing or auth.
-4. Merge to `main` deploys to staging automatically; production follows via progressive rollout.
+4. Merging to `main` kicks off the [delivery pipeline](/shipping/pipeline/): automated stages run on every merge; releasing to production is a deliberate, manually triggered step.
 
 ## Review expectations
 
@@ -25,18 +25,12 @@ First response within **4 working hours** — unblocking a teammate outranks you
 
 - Type check + lint (blocking), unit tests (blocking)
 - Join-flow Playwright happy path (blocking for frontend apps)
-- Contract tests against pinned OpenAPI specs (blocking for services)
-- Bundle-size and image-size budgets (blocking), Snyk scan (advisory, blocking on critical)
+- Consumer-driven contract (CDC) tests (blocking for services)
+- Bundle-size and image-size budgets (blocking), Veracode scan
 
 ## How a deploy actually happens
 
-ArgoCD watches `main` and syncs the new image. Istio shifts traffic in steps — **5% → 25% → 100%** — with automated analysis on error rate and p99 latency between steps. A failed step rolls back without a human.
-
-```sh
-# watch your rollout
-pf rollout status billing-svc
-# canary 25% · error 0.02% · p99 210ms · promoting in 4m
-```
+Every merge runs the pipeline's automated stages — commit (build, static analysis, unit/component/integration tests), functional tests, and non-functional tests. When a build contains features worth examining, it's released to Staging for the time-boxed manual test stage. Production release is its own manually triggered stage, gated on all of the above and finishing with smoke tests. The full walkthrough is on the [delivery pipeline](/shipping/pipeline/) page.
 
 :::note
 Deploy freeze: Jan 1–7. New-year join volume is our Super Bowl; we don't ship anything we don't have to.

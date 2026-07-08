@@ -1,9 +1,9 @@
 ---
 title: Who owns what?
 description: The service-and-surface ownership map for every repo, service, and dashboard.
-owner: Maya Torres
-initials: MT
-avatarColor: '#470A68'
+owner: Dan Lourenço
+initials: DL
+avatarColor: '#AD43DB'
 updated: Jun 3, 2026
 readTime: 2 min read
 stub: true

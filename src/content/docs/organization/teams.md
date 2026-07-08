@@ -1,9 +1,9 @@
 ---
 title: How are teams structured?
 description: Pods aligned to member journeys, each with a PM, a designer, and 4–6 engineers.
-owner: Maya Torres
-initials: MT
-avatarColor: '#470A68'
+owner: Dan Lourenço
+initials: DL
+avatarColor: '#AD43DB'
 updated: Jun 3, 2026
 readTime: 2 min read
 stub: true

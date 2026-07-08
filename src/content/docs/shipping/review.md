@@ -1,9 +1,9 @@
 ---
 title: How do we review code?
 description: Four-hour first response, approach over formatting, critique code not people.
-owner: Dev Patel
-initials: DP
-avatarColor: '#8845C8'
+owner: Dan Lourenço
+initials: DL
+avatarColor: '#AD43DB'
 updated: Jun 25, 2026
 readTime: 3 min read
 stub: true

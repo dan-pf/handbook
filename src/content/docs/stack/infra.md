@@ -1,9 +1,9 @@
 ---
 title: What runs underneath everything?
-description: Containers on Kubernetes, meshed with Istio, defined in Terraform, delivered by ArgoCD.
-owner: Alex Kim
-initials: AK
-avatarColor: '#551497'
+description: Containers on Kubernetes, meshed with Istio, defined in Terraform, delivered by CD pipelines.
+owner: Dan Lourenço
+initials: DL
+avatarColor: '#AD43DB'
 updated: Jun 28, 2026
 readTime: 3 min read
 stub: true
@@ -16,7 +16,7 @@ facts:
   - label: Infra as code
     value: Terraform, PR-reviewed, applied via Atlantis
   - label: Delivery
-    value: ArgoCD — GitOps, auto-sync from main
+    value: Continuous Delivery pipelines — see the delivery pipeline page
 ---
 
-Everything ships as a container to Kubernetes, meshed with Istio, defined in Terraform, and delivered by ArgoCD. Nobody SSHes into anything.
+Everything ships as a container to Kubernetes, meshed with Istio, defined in Terraform, and delivered through our Continuous Delivery pipelines. Nobody SSHes into anything.

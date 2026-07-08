@@ -28,5 +28,5 @@ Light mode is identical in both variants.
 
 ## Pre-deploy checklist
 
-- Replace placeholder `pf-eng/handbook` URLs (`editLink.baseUrl`, GitHub social link) in `astro.config.mjs`.
+- Confirm the handbook repo URL in `astro.config.mjs` (`editLink.baseUrl`, GitHub social link) — the `planetfitness` org is real, the `handbook` repo name is assumed.
 - Set `site` in `astro.config.mjs` so the sitemap integration activates.

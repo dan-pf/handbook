@@ -1,13 +1,13 @@
 ---
 title: How do I roll back a deploy?
-description: pf rollout undo pins the previous image and pauses auto-sync.
-owner: Alex Kim
-initials: AK
-avatarColor: '#551497'
+description: Re-release the last known-good build via the pipeline's release stage; full runbook in progress.
+owner: Dan Lourenço
+initials: DL
+avatarColor: '#AD43DB'
 updated: Jul 1, 2026
 readTime: 2 min read
 stub: true
 tableOfContents: false
 ---
 
-Short version: `pf rollout undo <service>` pins the previous image and pauses auto-sync. The full runbook with verification steps and the ArgoCD UI path is being migrated from the ops wiki.
+Short version: roll back by re-deploying the last known-good release candidate through the [delivery pipeline's](/shipping/pipeline/) release stage. Step-by-step rollback runbooks — application, edge-lb, and caching/Cloudflare — live in the [runbooks repo](https://github.com/planetfitness/runbooks) under `in-case-of-production-issues/rollback/`, published via Backstage TechDocs.

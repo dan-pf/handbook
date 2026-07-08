@@ -1,9 +1,9 @@
 ---
 title: Why does this handbook exist?
 description: What the handbook is for, what belongs in it, and how to change it.
-owner: Maya Torres
-initials: MT
-avatarColor: '#470A68'
+owner: Dan Lourenço
+initials: DL
+avatarColor: '#AD43DB'
 updated: Jun 30, 2026
 readTime: 3 min read
 ---
@@ -28,8 +28,8 @@ Processes ("how do we review code?"), architecture decisions and their reasoning
 
 ## What doesn't
 
-Sprint-level status (that lives in Linear), API reference docs (generated from code), anything member-data-sensitive (internal wiki with access controls), and HR policy (People team owns that handbook).
+Sprint-level status (that lives in Jira), API reference docs (generated from code), anything member-data-sensitive (internal wiki with access controls), and HR policy (People team owns that handbook).
 
 ## How to change it
 
-The handbook is a repo. Hit **Suggest an edit** on any page to open a PR against `pf-eng/handbook`. The page owner reviews it like any other PR — usually same day. Typos don't need review; merge them.
+The handbook is a repo. Hit **Suggest an edit** on any page to open a PR against `planetfitness/handbook`. The page owner reviews it like any other PR — usually same day. Typos don't need review; merge them.

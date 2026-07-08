@@ -7,7 +7,7 @@ export const collections = {
 		loader: docsLoader(),
 		schema: docsSchema({
 			extend: z.object({
-				/** Page owner, e.g. "Maya Torres". Every page has one. */
+				/** Page owner, e.g. "Dan Lourenço". Every page has one. */
 				owner: z.string().optional(),
 				/** Owner initials shown in the avatar chip, e.g. "MT". */
 				initials: z.string().optional(),
