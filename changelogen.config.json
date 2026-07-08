@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/changelogen/schema.json",
+  "types": {
+    "feat": { "title": "🚀 Features" },
+    "fix": { "title": "🐛 Fixes" },
+    "docs": { "title": "📖 Documentation" },
+    "content": { "title": "📝 Content" },
+    "refactor": { "title": "♻️ Refactors" },
+    "chore": { "title": "🏡 Chore" }
+  }
+}

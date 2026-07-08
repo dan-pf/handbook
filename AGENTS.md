@@ -6,6 +6,12 @@ Astro Starlight site for PF engineering's internal handbook. Content is Markdown
 
 - `astro dev --background` — start the dev server (manage with `astro dev stop` / `status` / `logs`)
 - `npm run build` — static build to `dist/`; must pass before considering a change done
+- `npm run changelog` — regenerate `CHANGELOG.md` from commits since the last tag
+- `npm run release` — bump `version`, tag, and push (changelogen)
+
+## Commits & versioning
+
+Conventional Commits, versioned with [changelogen](https://github.com/unjs/changelogen). Prefix every commit: `feat:`, `fix:`, `docs:`, `content:` (handbook copy), `refactor:`, `chore:`. Use a scope where it helps (`content(stack): …`). `feat`/`fix` drive the version bump; `content` is our own type for page edits (configured in `changelogen.config.json`). A `!` suffix or `BREAKING CHANGE:` footer forces a major bump.
 
 ## Map
 
@@ -25,5 +31,5 @@ Astro Starlight site for PF engineering's internal handbook. Content is Markdown
 
 ## Constraints
 
-- The GitHub URLs (`pf-eng/handbook`) in `astro.config.mjs` are placeholders from the design — don't treat them as real; flag before deploy.
+- The GitHub org (`github.com/planetfitness`) is real, but the handbook repo name in `astro.config.mjs` (`planetfitness/handbook`) is assumed — confirm before deploy.
 - Section numbering in the sidebar is CSS counters over config order — reordering sidebar groups renumbers them.
