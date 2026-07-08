@@ -11,7 +11,7 @@ Astro Starlight site for PF engineering's internal handbook. Content is Markdown
 
 ## Commits & versioning
 
-Conventional Commits, versioned with [changelogen](https://github.com/unjs/changelogen). Prefix every commit: `feat:`, `fix:`, `docs:`, `content:` (handbook copy), `refactor:`, `chore:`. Use a scope where it helps (`content(stack): …`). `feat`/`fix` drive the version bump; `content` is our own type for page edits (configured in `changelogen.config.json`). A `!` suffix or `BREAKING CHANGE:` footer forces a major bump.
+Conventional Commits, versioned with [changelogen](https://github.com/unjs/changelogen). Prefix every commit: `feat:`, `fix:`, `docs:`, `content:` (handbook copy), `refactor:`, `chore:`. Use a scope where it helps (`content(stack): …`). `feat`/`fix` drive the version bump; `content` is our own type for page edits (configured in `changelog.config.json`). A `!` suffix or `BREAKING CHANGE:` footer forces a major bump.
 
 ## Map
 
