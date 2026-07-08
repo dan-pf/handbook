@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,15 +9,17 @@ export default defineConfig({
 		'/': '/handbook/why/',
 	},
 	integrations: [
+		// Must come before starlight so mermaid code fences are transformed first.
+		mermaid(),
 		starlight({
 			title: 'Planet Fitness',
 			description:
 				'The single source of truth for how Planet Fitness engineering works: how we are organized, what we build with, how we ship, and what to do when things break.',
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/pf-eng/handbook' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/planetfitness/handbook' },
 			],
 			editLink: {
-				baseUrl: 'https://github.com/pf-eng/handbook/edit/main/',
+				baseUrl: 'https://github.com/planetfitness/handbook/edit/main/',
 			},
 			lastUpdated: false,
 			customCss: [
@@ -69,6 +72,7 @@ export default defineConfig({
 						{ label: 'Shipping code', slug: 'shipping/code' },
 						{ label: 'Code review', slug: 'shipping/review' },
 						{ label: 'Testing', slug: 'shipping/testing' },
+						{ label: 'Delivery pipeline', slug: 'shipping/pipeline' },
 					],
 				},
 				{
@@ -95,7 +99,10 @@ export default defineConfig({
 				},
 				{
 					label: 'Engineering Culture & Values',
-					items: [{ label: 'Values', slug: 'culture/values' }],
+					items: [
+						{ label: 'Guiding tenets', slug: 'culture/tenets' },
+						{ label: 'Values', slug: 'culture/values' },
+					],
 				},
 			],
 		}),
