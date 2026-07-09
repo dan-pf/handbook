@@ -405,6 +405,90 @@ nav.sidebar .top-level a[aria-current='page']:hover {
 	color: var(--sl-color-white);
 }
 
+/* ---------- Mermaid diagrams & lightbox ---------- */
+
+/* Wide diagrams scroll inside their own box rather than stretching the page. */
+.sl-markdown-content pre.mermaid {
+	overflow-x: auto;
+	background: transparent;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 12px;
+	padding: 16px;
+	text-align: center;
+}
+.sl-markdown-content pre.mermaid[data-processed] {
+	cursor: zoom-in;
+	position: relative;
+}
+/* "Expand" hint in the corner, on hover */
+.sl-markdown-content pre.mermaid[data-processed]::after {
+	content: '⤢ Click to expand';
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	color: var(--pf-muted);
+	background: var(--sl-color-bg);
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 999px;
+	padding: 2px 8px;
+	opacity: 0;
+	transition: opacity 0.12s;
+	pointer-events: none;
+}
+.sl-markdown-content pre.mermaid[data-processed]:hover::after {
+	opacity: 1;
+}
+
+.pf-lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 4vmin;
+	background: rgba(20, 20, 43, 0.85);
+	overflow: auto;
+	overscroll-behavior: contain;
+}
+.pf-lightbox.is-open {
+	display: flex;
+}
+.pf-lightbox-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pf-lightbox-inner svg {
+	background: var(--sl-color-bg);
+	border-radius: 12px;
+	padding: 2vmin;
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+.pf-lightbox-close {
+	position: fixed;
+	top: 16px;
+	right: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 999px;
+	border: 1px solid var(--sl-color-hairline);
+	background: var(--sl-color-bg);
+	color: var(--sl-color-text);
+	font-size: 18px;
+	line-height: 1;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pf-lightbox-close:hover {
+	background: var(--pf-hover);
+}
+
 /* ---------- Right rail ("On this page") ---------- */
 
 starlight-toc h2,
