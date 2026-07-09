@@ -11,7 +11,9 @@ Astro Starlight site for PF engineering's internal handbook. Content is Markdown
 
 ## Commits & versioning
 
-Conventional Commits, versioned with [changelogen](https://github.com/unjs/changelogen). Prefix every commit: `feat:`, `fix:`, `docs:`, `content:` (handbook copy), `refactor:`, `chore:`. Use a scope where it helps (`content(stack): …`). `feat`/`fix` drive the version bump; `content` is our own type for page edits (configured in `changelog.config.json`). A `!` suffix or `BREAKING CHANGE:` footer forces a major bump.
+Conventional Commits, versioned with [changelogen](https://github.com/unjs/changelogen). Prefix every commit: `feat:`, `fix:`, `docs:`, `content:` (handbook copy), `refactor:`, `chore:`. Use a scope where it helps (`content(stack): …`). `feat` bumps the minor, `fix` the patch; `content` is our own type for page edits (configured in `changelog.config.json`). A `!` suffix or `BREAKING CHANGE:` footer forces a major bump.
+
+**Version convention: `feat` → minor.** ⚠️ changelogen down-levels this while we're on `0.x` (it turns a computed `minor` into a `patch`), so a feature release needs the target version forced: `npx changelogen --release --push --newVersion 0.<next>.0`. Plain `npm run release` will otherwise cut a patch. This override goes away once we tag `1.0.0` — after that, `feat` → minor is automatic.
 
 ## Map
 
