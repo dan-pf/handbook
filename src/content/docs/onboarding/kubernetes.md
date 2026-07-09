@@ -52,6 +52,14 @@ Reload your shell: `source ~/.zshrc`.
 
 The full, current function definitions live in the runbook — copy them from there rather than from memory, since they change.[^eks]
 
+:::note[We're streamlining this]
+This setup works but has known rough edges we're actively improving (see the internal `docs/eks-dx-proposal.md`). While you're here:
+
+- **Prefer the browser login.** `login-vault` uses Vault OIDC (a browser → Auth0 flow), so you can leave `VAULT_GITHUB_TOKEN` unset and skip storing a personal token. Only fall back to a GitHub PAT if the browser flow isn't available to you.
+- **`aws-iam-authenticator` is legacy.** Modern EKS authenticates through the `aws eks get-token` plugin that `aws eks update-kubeconfig` wires up automatically — you likely won't need the authenticator binary, even though the runbook still lists it.
+- **`VAULT_SKIP_VERIFY=true`** disables Vault's TLS check. It's in the current setup, but it's a flagged issue — don't carry the habit to other tools.
+:::
+
 ## Logging in
 
 Each cluster has an alias. Run the one for the environment you need:
