@@ -8,7 +8,7 @@ updated: Jul 7, 2026
 readTime: 5 min read
 ---
 
-High-quality software is a whole-team responsibility — Product, Design, Infrastructure, and Operations included — but Engineering is ultimately accountable for it. We shape the testing approach for every initiative around the **Agile Testing Quadrants** and the **test pyramid**, and we automate everything that can be automated into the delivery pipeline.
+High-quality software is a whole-team responsibility — Product, Design, Infrastructure, and Operations included — but Engineering is ultimately accountable for it. We shape the testing approach for every initiative around the **Agile Testing Quadrants** and the **test pyramid**, and we automate everything that can be automated into the delivery pipeline.[^practices]
 
 ## The quadrants
 
@@ -35,18 +35,18 @@ High-quality software is a whole-team responsibility — Product, Design, Infras
 
 **Tech-facing, critiquing the product (automated or tooled)** — does the product satisfy non-functional requirements?
 
-- **Load tests** — rule of thumb: **3× peak traffic from the prior 12 months**.
+- **Load tests** — rule of thumb: **3× peak traffic from the prior 12 months**.[^practices]
 - **Capacity tests** — find the load where latency/throughput start to degrade.
 - **Security tests** — confirm security requirements (e.g. pen testing).
 
 ## Coverage targets
 
-Coverage is a metric for confirming what we are and aren't testing, not a goal in itself. We generally aim for **90% line, 80% method, and 80% branch coverage**.
+Coverage is a metric for confirming what we are and aren't testing, not a goal in itself. We generally aim for **90% line, 80% method, and 80% branch coverage**.[^practices]
 
 ## Who does what
 
 Engineering creates the automated quadrants and wires them into the Continuous Delivery pipeline — partnering with Product Management on functional requirements and exceptional cases, and with Operations and Security on non-functional requirements. For the manual quadrant, Engineering partners with Product and Design to define scenario tests (doing this up front clarifies requirements fast) and joins sessions where real users exercise pre-release builds. Where full automation isn't viable, Engineering builds tooling to ease manual execution.
 
-:::note
-Source of truth: [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439) in Confluence, which also covers [test reports](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/5908955137) and [library vulnerability handling](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4938596354).
-:::
+**Primary source:** [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439) in Confluence,[^practices] which also covers [test reports](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/5908955137) and [library vulnerability handling](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4938596354).
+
+[^practices]: [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439), PF Software Engineering Team space (Confluence). Deep-dives: [Mutation Testing](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4809588761), [Integration Testing](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4841537597), [Consumer Driven Contract Testing](https://planetfitness.atlassian.net/wiki/spaces/PFX/pages/4798513159), [Manual API Testing](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4809064462).

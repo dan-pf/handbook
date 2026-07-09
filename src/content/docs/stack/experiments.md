@@ -27,7 +27,7 @@ sequenceDiagram
 
 ## How assignment works
 
-- The VWO client is initialized once per app in `app/middleware/vwoClient.ts` (`vwo-fme-node-sdk`; env: `IS_VWO_ENABLED`, `VWO_FME_ACCOUNT_ID`, `VWO_FME_SDK_KEY`; 60s flag polling).
+- The VWO client is initialized once per app in `app/middleware/vwoClient.ts` (`vwo-fme-node-sdk`; env: `IS_VWO_ENABLED`, `VWO_FME_ACCOUNT_ID`, `VWO_FME_SDK_KEY`; 60s flag polling).[^remix]
 - Each experiment is a module in `app/experiments/<name>/` with a `.server.ts` that calls `getFlag('<flagKey>', { id: vwoUserId, customVariables })`. The user id comes from `getVwoUserId(request)` (cookie-based), so assignment is stable per visitor.
 - **Convention: every VWO variation defines two kinds of variables** — the behavior switch(es) the code reads (e.g. `binValidationEnabled`), and a **`gtmString`** naming the variation for analytics (e.g. `bin_filtering_control` / `bin_filtering_variant`).
 - Gotcha: array `customVariables` must be `JSON.stringify`-ed before being sent to VWO (see `saleCampaignIDs` in any experiment module).
@@ -52,10 +52,13 @@ sequenceDiagram
 
 ## Worked example: BIN Filtering
 
-The `binFiltering` flag (JOINREVAMP-1297) A/B tests BIN validation on the join payment step:
+The `binFiltering` flag (Jira JOINREVAMP-1297) A/B tests BIN validation on the join payment step:[^bin]
 
 - Variables per variation: `binValidationEnabled` (drives the behavior) and `gtmString` (`bin_filtering_control` | `bin_filtering_variant`).
 - Users not enrolled in the experiment fall back to the static `bin-validation-enabled` feature toggle — the decision logic lives in `getBinValidationDecision`.
 - The payment route stamps `exp` onto `virtualPageview`, `ecomCheckout`, `customEvent`, **and** `recurring_payment_submit_error` (with `error_message_type: 'BIN payment error'`) — so GA can compare not just conversion but BIN-error rates between arms.
 
 **GA segments to set up for this test**: two event-scoped segments, `exp` *contains* `bin_filtering_variant` and `exp` *contains* `bin_filtering_control`. Key comparisons: `ecomCheckout` completion rate per arm, and the rate of `recurring_payment_submit_error` events where `error_message_type` is `BIN payment error`. If `exp` isn't yet registered as a custom dimension in the GA property, that's step zero — segments can't see it otherwise.
+
+[^remix]: [remix-run](https://github.com/planetfitness/remix-run) — `app/middleware/vwoClient.ts`, `app/experiments/*/`, and the dataLayer `exp` wiring in `app/routes-join/join-payment/route.tsx` / `app/root.tsx`.
+[^bin]: Jira JOINREVAMP-1297; [remix-run `app/experiments/binFiltering/binFiltering.server.ts`](https://github.com/planetfitness/remix-run) and the `binFiltering dataLayer exp` tests in `join-payment/route.test.tsx`.

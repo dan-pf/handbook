@@ -16,6 +16,7 @@ These are the core tenets the engineering team embraces and champions — a comb
 - **We aspire to create high-trust relationships** with our team members, our partners, and our members — by understanding the dynamics of the [trust equation](https://trustedadvisor.com/why-trust-matters/understanding-trust/understanding-the-trust-equation) and being self-aware enough to change those dynamics when trust is lacking.
 - **We aspire to work as a [high-performing team](https://psychsafety.com/googles-project-aristotle/) and continuously improve until we get there** — by providing impactful, meaningful work with structure and clarity, holding ourselves accountable to an environment where excellence and experimentation are expected, and encouraging [team experimentation](https://dora.dev/capabilities/team-experimentation/) within appropriate guardrails.
 - **We aspire to be both [empowered in and accountable for](https://www.mindtheproduct.com/empowered-product-teams-by-marty-cagan/) our work** — by understanding the [strategic context](https://www.svpg.com/coaching-strategic-context/) before we begin development, collaborating with Product and Design on [the problems we're trying to solve](https://www.svpg.com/changing-how-you-solve-problems/), and proactively seeking feedback and coaching through transparent, high-trust conversations.
+- **We operate as a Judgement Free Zone** — the gym-floor rule applied to the codebase. Questions go in public channels, post-incident reviews are blameless, and code review critiques the code, never the person. Seniority means making it safer for others to be wrong, not being right louder.
 
 ## Collaboration
 
@@ -43,6 +44,6 @@ These are the core tenets the engineering team embraces and champions — a comb
 - **We build operational maturity by deeply analyzing production issues** — capturing a [Correction of Errors](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4837441592) in the spirit of continuous improvement.
 - **We create tooling and documentation sufficient to guide us through unexpected operational scenarios** — preferring automation, and writing runbooks where automation isn't possible so anyone on the team can contribute to incident resolution.
 
-:::note
-Source of truth: [Guiding Tenets](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4746805262) in the PF Software Engineering Team Confluence space. Propose changes there first, then sync this page.
-:::
+**Primary source:** [Guiding Tenets](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4746805262) in the PF Software Engineering Team Confluence space.[^tenets] Propose changes there first, then sync this page.
+
+[^tenets]: [Guiding Tenets](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4746805262), PF Software Engineering Team space (Confluence).

@@ -45,6 +45,6 @@ Also manually triggered. Once a release candidate is vetted — all automated te
 
 When two dependent applications or services are changing at once, pipelines chain: a merge to Service A triggers its pipeline, which on success triggers the pipelines of the services and applications that depend on it, each testing against the latest successful artifacts of its dependencies. Teams that prefer stability can pin to stable release candidates via dependency versioning instead.
 
-:::note
-Source of truth: [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439) in Confluence, including the pipeline diagrams this page summarizes.
-:::
+**Primary source:** [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439) in Confluence,[^practices] including the pipeline diagrams this page summarizes.
+
+[^practices]: [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439), PF Software Engineering Team space (Confluence) — Continuous Delivery section.

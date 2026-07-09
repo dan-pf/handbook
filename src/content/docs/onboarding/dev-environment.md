@@ -39,6 +39,6 @@ npx playwright test tests/e2e/remix-run/en-US/join-happy-path.spec.ts --ui
 This flow requires **Node 25.0.0** — newer versions cause it to fail.
 :::
 
-:::note
-Source of truth: [Useful Links](https://planetfitness.atlassian.net/wiki/spaces/PFX/pages/5918654508) in the PFX Digital Solutions Confluence space. Propose changes there first, then sync this page.
-:::
+**Primary source:** [Useful Links](https://planetfitness.atlassian.net/wiki/spaces/PFX/pages/5918654508) in the PFX Digital Solutions Confluence space.[^links] Propose changes there first, then sync this page.
+
+[^links]: [Useful Links](https://planetfitness.atlassian.net/wiki/spaces/PFX/pages/5918654508), PFX Digital Solutions space (Confluence). Test-user flow: [remix-run `join-happy-path.spec.ts`](https://github.com/planetfitness/remix-run).

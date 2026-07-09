@@ -10,7 +10,7 @@ readTime: 3 min read
 
 Async-first: decisions in written docs, discussion in public channels, DMs only for the personal stuff. Quick question? That's Slack, not email.
 
-## The tools
+## The tools[^practices]
 
 - **Slack** (`planetfitnesscsc.slack.com`) — async messaging within Engineering and across our pods and workstreams.
 - **Teams** — async messaging with people outside IT (many don't have a Slack presence), and formal write-ups that need feedback from non-IT collaborators or executive leaders.
@@ -21,7 +21,7 @@ Async-first: decisions in written docs, discussion in public channels, DMs only 
 
 ## Email etiquette
 
-Email is for things that need a record or an external audience. When you do send one:
+Email is for things that need a record or an external audience.[^etiquette] When you do send one:
 
 - **Clear subject line, clear intent.** The recipient should know from the subject what you need from them.
 - **Quick questions don't belong here.** Use Slack/Teams chat for anything that resolves in a message or two.
@@ -39,3 +39,6 @@ Email is for things that need a record or an external audience. When you do send
 :::note
 Channel conventions, response-time expectations, and when to escalate to a meeting are still being written. Until then, default to public channels and ask in `#eng-onboarding`.
 :::
+
+[^practices]: [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439) — Collaboration section (Confluence).
+[^etiquette]: *PF Meeting, Calendar & Email Etiquette* (internal deck, Jun 2026). <!-- TODO: replace with Confluence/SharePoint URL once provided --> Live link pending.

@@ -12,7 +12,7 @@ One domain, three web apps from three different generations, stitched together p
 
 ## How we got here
 
-From 2014 the site was a single Drupal platform. Partial migrations then stacked up without any of them finishing: a partner-led React rebuild of pf.com (2019, custom CSS lib), a Next.js member portal (2021, Contentful + Material UI), and Remix for US/CA prospect pages and online join (2024, Tailwind). The Drupal Pod decommissioned Drupal in June 2025 — leaving today's three production repos, three design systems, and two overlapping Contentful spaces ("Workflow 2X" legacy and "Website"). That history, not intent, is why the architecture below looks the way it does.
+From 2014 the site was a single Drupal platform. Partial migrations then stacked up without any of them finishing: a partner-led React rebuild of pf.com (2019, custom CSS lib), a Next.js member portal (2021, Contentful + Material UI), and Remix for US/CA prospect pages and online join (2024, Tailwind). The Drupal Pod decommissioned Drupal in June 2025 — leaving today's three production repos, three design systems, and two overlapping Contentful spaces ("Workflow 2X" legacy and "Website"). That history, not intent, is why the architecture below looks the way it does.[^consolidation]
 
 ## The apps
 
@@ -22,6 +22,8 @@ From 2014 the site was a single Drupal platform. Partial migrations then stacked
 | [member-portal](https://github.com/planetfitness/member-portal) | Despite the name, the monolithic Next.js app serving much of www — `/my-account`, `/login`, careers, guest registration, and ~50 legal/marketing pages. Absorbed the earlier Gatsby site. | Next.js 15 (Pages Router, custom server), React 18, JavaScript (no TS), styled-components + `@planetfitness/pf-ui` |
 | [planetfitness.com](https://github.com/planetfitness/planetfitness.com) | The original site (`pf-website`): club pages under `/gyms`, offers, and the legacy checkout. Also exports the shared server-rendered header/footer as microfrontends that other apps embed. | CRA + hand-rolled Express SSR, React 16, Redux + sagas, `@planetfitness/pf-ui` |
 | [edge-lb](https://github.com/planetfitness/edge-lb) | The nginx layer that makes the above look like one website (see below). | nginx on EC2 (ASG), Packer AMIs, Terraform |
+
+Each row is drawn from the repo's own `package.json`, Dockerfile, and manifests.[^repos]
 
 ## How it's stitched together
 
@@ -42,7 +44,7 @@ flowchart LR
 - `/my-account/billing` → **remix-billing**
 - Unmatched routes fall back: member-portal → legacy Drupal redirect map → Remix 404
 
-Migration is incremental and reversible: `split_clients` percentages and pilot cookies (`isPilot`, `isPilotTransfer`) canary individual account routes from member-portal to `remix-member` before they move for good. The edge also serves the per-country domains (`.ca`, `.mx`, `.pa`, `.do`, `.com.au`, Spain) and the kiosk domain. **When you need to know which app owns a URL, the nginx config in `edge-lb` is the source of truth.**
+Migration is incremental and reversible: `split_clients` percentages and pilot cookies (`isPilot`, `isPilotTransfer`) canary individual account routes from member-portal to `remix-member` before they move for good. The edge also serves the per-country domains (`.ca`, `.mx`, `.pa`, `.do`, `.com.au`, Spain) and the kiosk domain. **When you need to know which app owns a URL, the nginx config in `edge-lb` is the source of truth.**[^edgelb]
 
 ## Server-first data (the BFF pattern)
 
@@ -73,7 +75,7 @@ Naming gotcha: the **member-portal** repo is the Next.js app that serves much of
 
 ## Where it's going
 
-There's an active consolidation proposal (David O'Shaughnessy / Rob Callahan, Sep 2025: *Website Consolidation*) to finish what the partial migrations never did: collapse pf.com and member-portal into the Remix apps, keep Cloudflare + edge-lb but point everything at Remix, serve all content from the single Contentful "Website" space, and route auth through `remix-member`. Highlights:
+There's an active consolidation proposal (David O'Shaughnessy / Rob Callahan, Sep 2025: *Website Consolidation*)[^consolidation] to finish what the partial migrations never did: collapse pf.com and member-portal into the Remix apps, keep Cloudflare + edge-lb but point everything at Remix, serve all content from the single Contentful "Website" space, and route auth through `remix-member`. Highlights:
 
 - **Path-by-path migration tables** exist for both legacy apps (e.g. `/login` → alias to `/signin` on `remix-member`; guest flows → `remix-join`; `/gyms/pfx/*` internals → removed). The pilot cookies on `/my-account/profile` are the first of these plays in flight.
 - **CMS**: dynamic-page rendering from Contentful in Remix is built and waiting on review ([remix-run#2666](https://github.com/planetfitness/remix-run/pull/2666)); the deck also floats a code-first alternative (content in the repo + AI translations) since there's no dedicated content manager today.
@@ -83,3 +85,7 @@ There's an active consolidation proposal (David O'Shaughnessy / Rob Callahan, Se
 :::caution
 The consolidation is a proposal, not a done deal — treat the migration tables as direction, and the `edge-lb` nginx config as the source of truth for what's live today.
 :::
+
+[^repos]: [remix-run](https://github.com/planetfitness/remix-run), [member-portal](https://github.com/planetfitness/member-portal), [planetfitness.com](https://github.com/planetfitness/planetfitness.com) — `package.json`, Dockerfiles, and `manifests/`.
+[^edgelb]: [edge-lb](https://github.com/planetfitness/edge-lb) — nginx `planetfitness.com.conf` path→upstream mappings, `split_clients` and `isPilot*` cookie routing.
+[^consolidation]: *Website Consolidation* proposal, D. O'Shaughnessy & R. Callahan, Sep 2025 (internal presentation). <!-- TODO: replace with Confluence/SharePoint URL once provided --> Live link pending.

@@ -17,7 +17,7 @@ Conventional Commits, versioned with [changelogen](https://github.com/unjs/chang
 
 | Path | What it is |
 | --- | --- |
-| `src/content/docs/<section>/*.md` | Handbook pages (9 section dirs) |
+| `src/content/docs/<section>/*.md` | Handbook pages (10 section dirs incl. `reference/`) |
 | `astro.config.mjs` | Sidebar (every page is registered here), edit link, title |
 | `src/content.config.ts` | Extended frontmatter schema (owner, byline, stub, facts) |
 | `src/styles/custom.css` | Entire PF theme: light/dark palettes, type, all `pf-*` classes |
@@ -25,7 +25,7 @@ Conventional Commits, versioned with [changelogen](https://github.com/unjs/chang
 
 ## Before you work on…
 
-- **Adding or editing a content page** → read `docs/authoring.md` (frontmatter fields, stub-page conventions, callout/pill patterns).
+- **Adding or editing a content page** → read `docs/authoring.md` (frontmatter fields, stub-page conventions, callout/pill patterns, **citation style** — cite every Confluence/Jira/GitHub/vendor fact with a superscript footnote; mark untraceable claims `:::caution[Unverified]`).
 - **Styling or theme changes** → read `docs/design.md` (design provenance, palette mapping, the alternate "Purple Dark" theme, font caveats).
 - Starlight reference: https://starlight.astro.build
 

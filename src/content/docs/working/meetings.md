@@ -8,7 +8,7 @@ updated: Jul 7, 2026
 readTime: 3 min read
 ---
 
-Agenda in the invite or decline is a valid response. Before you book time at all, decide whether a meeting is even the right tool — if an email or Slack thread resolves it, send that instead.
+Agenda in the invite or decline is a valid response. Before you book time at all, decide whether a meeting is even the right tool — if an email or Slack thread resolves it, send that instead.[^etiquette]
 
 ## Before the meeting
 
@@ -47,3 +47,5 @@ The meeting owner sends the notes: key decisions, action items, owners, and due 
 :::note
 The list of our recurring engineering rituals (and what each one is for) is still being written. Until then, ask in `#eng-onboarding`.
 :::
+
+[^etiquette]: *PF Meeting, Calendar & Email Etiquette* (internal deck, Jun 2026). <!-- TODO: replace with Confluence/SharePoint URL once provided --> Live link pending.

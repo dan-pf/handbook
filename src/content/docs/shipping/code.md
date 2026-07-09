@@ -8,7 +8,11 @@ updated: Jun 25, 2026
 readTime: 6 min read
 ---
 
-Trunk-based, small PRs, deploy on merge. Anything riskier than a copy change goes out behind a flag. The goal is that shipping feels boring — excitement belongs in the product, not the deploy. Trunk-based development means: keep the trunk stable at all times, work in small batches and merge frequently, review PRs quickly, and treat pipeline failures as drop-everything ([full branching strategy](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4830560265) in Confluence).
+Trunk-based, small PRs, deploy on merge. Anything riskier than a copy change goes out behind a flag. The goal is that shipping feels boring — excitement belongs in the product, not the deploy. Trunk-based development means: keep the trunk stable at all times, work in small batches and merge frequently, review PRs quickly, and treat pipeline failures as drop-everything ([full branching strategy](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4830560265) in Confluence).[^branching]
+
+:::caution[Unverified]
+The specific thresholds below — first-response within 4 working hours, PRs under ~400 lines, one-approval / two-for-billing, and the Jan 1–7 deploy freeze — are carried over from the initial design mock-up and have no confirmed source of truth. The trunk-based workflow, CI gates, and pipeline stages are sourced; these numbers are not. Confirm with the team before treating them as policy.
+:::
 
 ## The loop
 
@@ -23,10 +27,7 @@ First response within **4 working hours** — unblocking a teammate outranks you
 
 ## What CI gates
 
-- Type check + lint (blocking), unit tests (blocking)
-- Join-flow Playwright happy path (blocking for frontend apps)
-- Consumer-driven contract (CDC) tests (blocking for services)
-- Bundle-size and image-size budgets (blocking), Veracode scan
+Type check, lint, and unit tests block on every push; services also run CDC contract tests and frontends the join-flow Playwright path, with Veracode scanning throughout. The authoritative, stage-by-stage list of what runs where lives on the [delivery pipeline](/shipping/pipeline/) page; the [testing](/shipping/testing/) page owns the test strategy behind it.
 
 ## How a deploy actually happens
 
@@ -35,3 +36,5 @@ Every merge runs the pipeline's automated stages — commit (build, static analy
 :::note
 Deploy freeze: Jan 1–7. New-year join volume is our Super Bowl; we don't ship anything we don't have to.
 :::
+
+[^branching]: [Branching & Environment Strategy](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4830560265), PF Software Engineering Team space (Confluence). CI gates and pipeline stages: [Engineering Practices and Conventions](https://planetfitness.atlassian.net/wiki/spaces/QE/pages/4788453439).

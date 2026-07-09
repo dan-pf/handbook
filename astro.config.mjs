@@ -7,6 +7,8 @@ import mermaid from 'astro-mermaid';
 export default defineConfig({
 	redirects: {
 		'/': '/handbook/why/',
+		// values merged into the guiding tenets (single source of truth for culture)
+		'/culture/values/': '/culture/tenets/',
 	},
 	integrations: [
 		// Must come before starlight so mermaid code fences are transformed first.
@@ -22,6 +24,10 @@ export default defineConfig({
 				baseUrl: 'https://github.com/planetfitness/handbook/edit/main/',
 			},
 			lastUpdated: false,
+			head: [
+				// Click-to-expand lightbox for Mermaid diagrams (see public/mermaid-lightbox.js).
+				{ tag: 'script', attrs: { src: '/mermaid-lightbox.js', defer: true } },
+			],
 			customCss: [
 				'@fontsource/barlow/400.css',
 				'@fontsource/barlow/600.css',
@@ -85,6 +91,7 @@ export default defineConfig({
 				{
 					label: 'Runbooks & How-Tos',
 					items: [
+						{ label: 'Writing a runbook', slug: 'runbooks/writing-runbooks' },
 						{ label: 'Roll back a deploy', slug: 'runbooks/rollback' },
 						{ label: 'Rotate a secret', slug: 'runbooks/secrets' },
 						{ label: 'Add a feature flag', slug: 'runbooks/feature-flags' },
@@ -95,14 +102,16 @@ export default defineConfig({
 					items: [
 						{ label: 'Your first week', slug: 'onboarding/first-week' },
 						{ label: 'Dev environment', slug: 'onboarding/dev-environment' },
+						{ label: 'Kubernetes & EKS', slug: 'onboarding/kubernetes' },
 					],
 				},
 				{
 					label: 'Engineering Culture & Values',
-					items: [
-						{ label: 'Guiding tenets', slug: 'culture/tenets' },
-						{ label: 'Values', slug: 'culture/values' },
-					],
+					items: [{ label: 'Guiding tenets', slug: 'culture/tenets' }],
+				},
+				{
+					label: 'Reference',
+					items: [{ label: 'Systems & sources', slug: 'reference/systems' }],
 				},
 			],
 		}),

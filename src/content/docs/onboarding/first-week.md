@@ -10,6 +10,10 @@ readTime: 4 min read
 
 Welcome to PF Engineering. One goal for the week: **merge a real PR to production by Friday.** Small is fine. Your buddy will steer you to a good first issue.
 
+:::caution[Unverified]
+The onboarding cadence on this page — the day-by-day plan, the four-week buddy program, and the specific access list — is carried over from the initial design mock-up and hasn't been confirmed against a real onboarding process. Tool references (remix-run, Jira, PagerDuty, the delivery pipeline) are accurate; the program structure is not yet sourced.
+:::
+
 ## Day by day
 
 - **Mon** — Laptop, accounts, meet your buddy. Run the dev-env setup script; file an issue for anything that doesn't work first try — broken onboarding docs are a SEV3.
