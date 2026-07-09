@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/dan-pf/handbook/compare/v0.1.1...v0.2.0)
+
+### 🚀 Features
+
+- Click-to-expand lightbox for Mermaid diagrams ([81893ff](https://github.com/dan-pf/handbook/commit/81893ff))
+
+### 📖 Documentation
+
+- Trim duplicate changelog section ([0cadcbb](https://github.com/dan-pf/handbook/commit/0cadcbb))
+- Add runbooks repo audit ([dfa5f5f](https://github.com/dan-pf/handbook/commit/dfa5f5f))
+
+### 📝 Content
+
+- Ground handbook in real sources and tighten information architecture ([c8ecf8b](https://github.com/dan-pf/handbook/commit/c8ecf8b))
+
+### ❤️ Contributors
+
+- Dan Lourenco ([@dan-pf](https://github.com/dan-pf))
+
 ## v0.1.1
 
 
